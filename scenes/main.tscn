@@ -10,8 +10,12 @@ radius = 45.276924
 script = ExtResource("1_0wfyh")
 
 [node name="InteractableZone" parent="." unique_id=1659842502 instance=ExtResource("1_o5qli")]
+position = Vector2(510, 291)
 
 [node name="Area2D" type="Area2D" parent="InteractableZone" unique_id=408502972]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableZone/Area2D" unique_id=601210712]
 shape = SubResource("CircleShape2D_1vivr")
+
+[connection signal="junk_gained" from="InteractableZone" to="." method="_on_interactable_zone_junk_gained"]
+[connection signal="treasure_gained" from="InteractableZone" to="." method="_on_interactable_zone_treasure_gained"]

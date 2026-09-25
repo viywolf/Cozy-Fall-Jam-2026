@@ -12,7 +12,7 @@ var is_in_area: bool = false
 func _ready() -> void:
 	for child in get_children():
 		if child is Area2D:
-			child.area_entered.connect(on_interactable_area_entered)
+			child.body_entered.connect(on_interactable_area_entered)
 
 func _process(delta: float) -> void:
 	if is_in_area:
@@ -20,9 +20,13 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			interacted_with_area()
 
-func on_interactable_area_entered():
-	interactable_zone_entered.emit()
-	is_in_area = true
+func on_interactable_area_entered(body: Node2D):
+	if body.name == "Player":
+		interactable_zone_entered.emit()
+		is_in_area = true
+		print("a")
+	else:
+		print("e5")
 
 func interacted_with_area():
 	if treasure_type == "Treasure":

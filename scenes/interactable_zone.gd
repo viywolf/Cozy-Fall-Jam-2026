@@ -27,20 +27,14 @@ func on_interactable_area_entered(body: Node2D):
 	if body.name == "Player":
 		interactable_zone_entered.emit()
 		is_in_area = true
-		print("a")
-	else:
-		print("e5")
 		
 func on_interactable_area_exited(body: Node2D):
 	if body.name == "Player":
 		is_in_area = false
-		print("a")
-	else:
-		print("e5")
 
 func interacted_with_area():
-	if treasure_type == "Treasure":
+	if treasure_type == 0:
 		treasure_gained.emit()
-	elif treasure_type == "Junk":
+	elif treasure_type == 1:
 		junk_gained.emit()
-	print("AOFDIFJSO")
+	queue_free()

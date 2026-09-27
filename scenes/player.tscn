@@ -1,24 +1,25 @@
 [gd_scene format=3 uid="uid://bmbit6lldrhwu"]
 
 [ext_resource type="Script" uid="uid://cfl48lmn5a27m" path="res://practice_character.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://d7pstb8g1q0u" path="res://icon.svg" id="2_qhqgy"]
-[ext_resource type="AudioStream" uid="uid://8cgvvd7r8hva" path="res://freesound_community-sfx_jump_07-80241.mp3" id="3_dqkch"]
-[ext_resource type="AudioStream" uid="uid://oj42ynyc82a6" path="res://u_3x9ga8wevj-walking-sound-effect-272246.mp3" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://jpqsnetug8pp" path="res://CharacterNormal.png" id="2_dqkch"]
+[ext_resource type="AudioStream" uid="uid://d2ohtrq50ino6" path="res://freesound_community-sfx_jump_07-80241.mp3" id="3_dqkch"]
+[ext_resource type="AudioStream" uid="uid://dwmg2glhnqquf" path="res://u_3x9ga8wevj-walking-sound-effect-272246.mp3" id="4_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1vivr"]
-radius = 55.0
-height = 110.0
+radius = 20.0
+height = 56.0
 
 [node name="Player" type="CharacterBody2D" unique_id=898339257]
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=431344088]
-texture = ExtResource("2_qhqgy")
+texture = ExtResource("2_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=534190622]
 shape = SubResource("CapsuleShape2D_1vivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1556424238]
+zoom = Vector2(2, 2)
 
 [node name="Jump Sound" type="AudioStreamPlayer2D" parent="." unique_id=320646167]
 unique_name_in_owner = true

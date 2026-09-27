@@ -1,14 +1,17 @@
 extends Node2D
 
+var spawnpoint: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_label()
+	spawnpoint = $Player.global_position
+	
 
+func _physics_process(delta: float) -> void:
+	if $Player.global_position.y > 2000:
+		$Player.global_position = spawnpoint
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func add_notif(image: String):
 	print("adding notif")

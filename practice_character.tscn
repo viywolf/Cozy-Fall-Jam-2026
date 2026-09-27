@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxebnbqaga3yn"]
+
+[ext_resource type="Script" uid="uid://blwrj5reg126o" path="res://practice_character.gd" id="1_u05wi"]
+[ext_resource type="Texture2D" uid="uid://d7pstb8g1q0u" path="res://icon.svg" id="1_v2vwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(133, 128)
+
+[node name="Practice character" type="CharacterBody2D" unique_id=659440226]
+script = ExtResource("1_u05wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=167558893]
+texture = ExtResource("1_v2vwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1406393084]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1174029143]

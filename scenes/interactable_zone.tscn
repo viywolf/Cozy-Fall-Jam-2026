@@ -4,3 +4,8 @@
 
 [node name="InteractableZone" type="Node2D" unique_id=1659842502]
 script = ExtResource("1_jpo25")
+
+[node name="Label" type="Label" parent="." unique_id=1354979985]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press E to dig"

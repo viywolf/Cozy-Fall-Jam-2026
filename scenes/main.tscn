@@ -6983,6 +6983,24 @@ position = Vector2(-838, 510)
 position = Vector2(16, -37)
 shape = SubResource("CircleShape2D_1vivr")
 
+[node name="InteractableZone4" parent="." unique_id=174500694 instance=ExtResource("1_o5qli")]
+position = Vector2(1981, 143)
+
+[node name="Area2D" type="Area2D" parent="InteractableZone4" unique_id=502056741]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableZone4/Area2D" unique_id=814998662]
+position = Vector2(16, -37)
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="InteractableZone5" parent="." unique_id=297664948 instance=ExtResource("1_o5qli")]
+position = Vector2(4703, 596)
+
+[node name="Area2D" type="Area2D" parent="InteractableZone5" unique_id=247322601]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableZone5/Area2D" unique_id=1436341733]
+position = Vector2(16, -37)
+shape = SubResource("CircleShape2D_1vivr")
+
 [node name="Player" parent="." unique_id=898339257 instance=ExtResource("3_sugp2")]
 position = Vector2(-1587, 514)
 scale = Vector2(0.5, 0.5)

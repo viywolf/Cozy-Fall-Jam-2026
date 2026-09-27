@@ -13,17 +13,27 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Area2D:
 			child.body_entered.connect(on_interactable_area_entered)
+			child.body_exited.connect(on_interactable_area_exited)
 
 func _process(delta: float) -> void:
 	if is_in_area:
-		# TODO temp input key
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("Interact"):
 			interacted_with_area()
+		$Label.show()
+	else:
+		$Label.hide()
 
 func on_interactable_area_entered(body: Node2D):
 	if body.name == "Player":
 		interactable_zone_entered.emit()
 		is_in_area = true
+		print("a")
+	else:
+		print("e5")
+		
+func on_interactable_area_exited(body: Node2D):
+	if body.name == "Player":
+		is_in_area = false
 		print("a")
 	else:
 		print("e5")
@@ -33,3 +43,4 @@ func interacted_with_area():
 		treasure_gained.emit()
 	elif treasure_type == "Junk":
 		junk_gained.emit()
+	print("AOFDIFJSO")

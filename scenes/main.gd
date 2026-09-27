@@ -1,21 +1,21 @@
 extends Node2D
 
-var spawnpoint: Vector2
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_label()
-	spawnpoint = $Player.global_position
+	Global.spawnpoint = $Player.global_position
 	
 
 func _physics_process(delta: float) -> void:
 	if $Player.global_position.y > 2000:
-		$Player.global_position = spawnpoint
+		$Player.global_position = Global.spawnpoint
 
 	
 func add_notif(image: String):
 	print("adding notif")
 	var new_image_sprite: Sprite2D = Sprite2D.new() 
+	new_image_sprite.modulate = Color(1.0, 1.0, 1.0, 0.95)
+	new_image_sprite.scale = Vector2(0.7,0.7)
 	if image.is_absolute_path():
 		new_image_sprite.texture = load(image)
 	else:
@@ -33,12 +33,14 @@ func add_notif(image: String):
 
 
 func _on_interactable_zone_treasure_gained() -> void:
-	add_notif("treasure gained image")
+	await get_tree().create_timer(1).timeout
+	add_notif("res://Item-1.png")
 	Global.treasure_collected += 1
 
 
 func _on_interactable_zone_junk_gained() -> void:
-	add_notif("junk gained image")
+	await get_tree().create_timer(1).timeout
+	add_notif("res://Item-2.png")
 
 func update_label() -> void:
 	$CanvasLayer/Label.text = "Treasure found: " + str(Global.treasure_collected) + "/" + str(Global.total_treasure)
